@@ -17,7 +17,7 @@ def scrapeSiteLinks(link, page_amount):
         driver.find_element(By.ID, 'span_next_page').click()
         time.sleep(2)
         print(f'Page {i+1} done!')
-        if i % 5 == 0:
+        if i % 5 == 0 or i == page_amount - 1:
             soup = BeautifulSoup(driver.page_source, 'lxml')
             image_containers = soup.find_all('div', class_='thumb-container-big')
             for container in image_containers:
